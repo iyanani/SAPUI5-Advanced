@@ -1,3 +1,4 @@
+
 sap.ui.define([
     "sap/ui/core/mvc/Controller"
 ],
@@ -7,27 +8,21 @@ sap.ui.define([
     function (Controller) {
         "use strict";
 
-       
-        return Controller.extend("logaligroup.Employees.controller.MainView", {
-            onInit: function () {
+        var Main = Controller.extend("logaligroup.Employees.controller.MainView", {});
 
-            },
-
-            onValidate: function () {
+        Main.prototype.onValidate = function () {
             var inputEmployee = this.byId("inputEmployee");
             var valueEmployee = inputEmployee.getValue();
-
             if (valueEmployee.length === 6) {
-               // inputEmployee.setDescription("Ok");
-               this.byId("labelCountry").setVisible(true); 
-               this.byId("slCountry").setVisible(true);
+                // inputEmployee.setDescription("Ok");
+                this.byId("labelCountry").setVisible(true);
+                this.byId("slCountry").setVisible(true);
             } else {
-               // inputEmployee.setDescription("Not Ok");
-               this.byId("labelCountry").setVisible(false); 
-               this.byId("slCountry").setVisible(false);
-            };
-
-
-        }
-        });
+                // inputEmployee.setDescription("Not Ok");
+                this.byId("labelCountry").setVisible(false);
+                this.byId("slCountry").setVisible(false);
+            }
+        };
+    
+        return Main;
     });
